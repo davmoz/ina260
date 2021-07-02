@@ -4,7 +4,7 @@ import os
 import sys
 import platform
 
-__packagename__ = "ina260"
+__packagename__ = "lib"
 install_requires = ['smbus2']
 
 setup(
@@ -18,5 +18,5 @@ setup(
     long_description_content_type='text/markdown',
     zip_safe=False,
     include_package_data=True,
-    install_requires = install_requires
+    install_requires=install_requires
 )

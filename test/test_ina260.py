@@ -1,9 +1,10 @@
 import pytest
-from ina260.controller import Controller
+from lib.ina260 import INA260
+
 
 @pytest.fixture
 def ina260_controller():
-    dev = Controller()
+    dev = INA260()
     yield dev
 
 
@@ -11,9 +12,11 @@ def test_voltage(ina260_controller):
     dev = ina260_controller
     assert dev.voltage() > 0
 
+
 def test_current(ina260_controller):
     dev = ina260_controller
     assert abs(dev.current()) > 0
+
 
 def test_power(ina260_controller):
     dev = ina260_controller
@@ -21,11 +24,13 @@ def test_power(ina260_controller):
     power = dev.power()
     assert abs(dev.power() > 0)
 
+
 def test_manufacturer_id(ina260_controller):
     dev = ina260_controller
 
     # Fixed for TI
     assert dev.manufacturer_id() == 0x5449
+
 
 def test_die_ied(ina260_controller):
     dev = ina260_controller
