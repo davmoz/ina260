@@ -4,7 +4,7 @@
 
 This Python package provides a platform-agnostic driver for the [TI INA260](https://www.ti.com/product/INA260) precision power monitor. Conveniently, the INA260 has a built-in sense resistor so it's very easy to integrate into your projects. It can sense from 0 to 36V and up to 15A(!) with 16-bit resolution. Thus, it's perfect for pretty much all hobbyist projects.
 
-This library was forked from [Josh Veitch-Michaelis](https://github.com/jveitchmichaelis) and slightly modified to work on Lopy4 by using `I2C` instead of `smbus2`.  
+This library was forked from [Josh Veitch-Michaelis](https://github.com/jveitchmichaelis) and slightly modified to work on Lopy4 using `I2C` instead of `smbus2`.  
 
 ## Examples
 ```python
