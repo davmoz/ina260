@@ -1,12 +1,11 @@
-from machine import I2C
 import struct
 import constants as const
 
 
 class INA260:
 
-    def __init__(self, address=0x40, channel=1, baud=100000, sda='P7', scl='P8'):
-        self.bus = I2C(channel, mode=I2C.MASTER, baudrate=baud, pins=(sda, scl))
+    def __init__(self, bus, address=0x40):
+        self.bus = bus
         self.address = address
 
     def _read(self, reg):
@@ -38,7 +37,6 @@ class INA260:
         Returns the current in Amps
         """
         current = struct.unpack('>H', self._read(const.REG_CURRENT))[0]
-
         # Fix 2's complement
         if current & (1 << 15):
             current -= 65535
