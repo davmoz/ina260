@@ -28,7 +28,7 @@ print("Bus current:", c.current(), "A")
 print("Bus power:", c.power(), "W")
 ```
 
-see the example script in the repository. Note that the power measurement is usually not the same as voltage times current unless you read all three registers instantaneously.
+see `main.py` in the repository. Note that the power measurement is usually not the same as voltage times current unless you read all three registers instantaneously.
 
 ## Hardware notes
 
