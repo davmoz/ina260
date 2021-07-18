@@ -25,7 +25,6 @@ c = INA260(bus)
 print("Bus voltage:", c.voltage(), "V")
 print("Bus current:", c.current(), "A")
 print("Bus power:", c.power(), "W")
-{"mode":"full","isActive":false}
 ```
 
 see the example script in the repository. Note that the power measurement is usually not the same as voltage times current unless you read all three registers instantaneously.
