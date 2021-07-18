@@ -8,13 +8,24 @@ This library was forked from [Josh Veitch-Michaelis](https://github.com/jveitchm
 
 ## Examples
 ```python
+from machine import I2C
 from lib.ina260 import INA260
+import time
 
-ina = INA260()
+sda = 'P9'
+scl = 'P10'
 
-print("Bus voltage: {} V").format(ina.voltage())
-print("Bus current: {} A").format(ina.current())
-print("Bus power: {} W").format(ina.power())
+bus = I2C(0, mode=I2C.MASTER, baudrate=100000, pins=(sda, scl))
+stuff = bus.scan()
+
+time.sleep_ms(50)
+
+c = INA260(bus)
+
+print("Bus voltage:", c.voltage(), "V")
+print("Bus current:", c.current(), "A")
+print("Bus power:", c.power(), "W")
+{"mode":"full","isActive":false}
 ```
 
 see the example script in the repository. Note that the power measurement is usually not the same as voltage times current unless you read all three registers instantaneously.
